@@ -10,3 +10,9 @@ Probar las capacidades audiovisuales del motor permitiendo un proceso de aprendi
 ## Releases
 Las entregas ejecutables y versiones del mismo ya compilado para windows se encuentran en la pestaña de Releases del repositorio, siendo la más reciente la versión 1.1.0.0
 Para ejecutarlo extrae el archivo zip y ejecuta el archivo .exe
+
+## Requisitos Mínimos
+- Sistema Operativo Windows 7, 8, 10, 11 de 64 bits
+- cualquier procesador que no tenga más de 25 años
+- 100 MB de RAM
+- Al menos 50 MB de espacio disponible
