@@ -76,8 +76,6 @@ extra_spacing_char = 2
 font_data = SubResource( 8 )
 
 [node name="panelDificultad" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="."]

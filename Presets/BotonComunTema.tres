@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=14 format=2]
 
 [ext_resource path="res://Presets/Fuente.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Presets/stylebox_regular.tres" type="StyleBox" id=2]
@@ -61,6 +61,22 @@ border_width_bottom = 4
 border_color = Color( 0.317647, 0.0980392, 0.0980392, 1 )
 shadow_size = 2
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.207843, 0.156863, 0.156863, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.572549, 0.356863, 0.356863, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.34902, 0.278431, 0.278431, 1 )
 border_width_left = 4
@@ -100,5 +116,6 @@ HSlider/icons/grabber_highlight = ExtResource( 6 )
 HSlider/styles/grabber_area = SubResource( 4 )
 HSlider/styles/grabber_area_highlight = SubResource( 5 )
 HSlider/styles/slider = SubResource( 6 )
+LineEdit/styles/normal = SubResource( 7 )
 Panel/styles/panel = SubResource( 3 )
 TooltipPanel/styles/panel = SubResource( 2 )

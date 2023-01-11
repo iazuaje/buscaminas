@@ -82,8 +82,6 @@ shadow_size = 4
 shadow_offset = Vector2( 0, 2 )
 
 [node name="PanelConfiguracion" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 6 )
 

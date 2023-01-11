@@ -16,8 +16,6 @@ extra_spacing_char = 2
 font_data = SubResource( 1 )
 
 [node name="PanelDeVictoria" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -56,13 +54,13 @@ margin_bottom = -19.5
 custom_constants/separation = 28
 
 [node name="Reiniciar" type="Button" parent="Panel/HBoxContainer"]
-margin_right = 105.0
+margin_right = 106.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
-text = "Reiniciar"
+text = "Continuar"
 
 [node name="Salir" type="Button" parent="Panel/HBoxContainer"]
-margin_left = 133.0
+margin_left = 134.0
 margin_right = 238.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
