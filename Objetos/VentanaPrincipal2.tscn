@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Presets/BotonComunTema.tres" type="Theme" id=1]
 [ext_resource path="res://Recursos/Graficos/IconoPantallaCompleta.png" type="Texture" id=2]
@@ -14,8 +14,9 @@
 [ext_resource path="res://Recursos/Sonidos/derrota.wav" type="AudioStream" id=12]
 [ext_resource path="res://Recursos/Sonidos/click2.mp3" type="AudioStream" id=13]
 [ext_resource path="res://Objetos/PanelConfiguracion.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objetos/transicionDeEscenas.tscn" type="PackedScene" id=15]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=14]
 font_path = "res://Recursos/Fuentes/steelfish rg.otf"
 
 [sub_resource type="DynamicFont" id=2]
@@ -23,7 +24,7 @@ size = 40
 outline_color = Color( 0.141176, 0.109804, 0.109804, 1 )
 use_mipmaps = true
 use_filter = true
-font_data = SubResource( 1 )
+font_data = SubResource( 14 )
 
 [sub_resource type="StyleBoxLine" id=3]
 color = Color( 0.435294, 0.262745, 0.141176, 1 )
@@ -96,18 +97,20 @@ tracks/3/keys = {
 "points": PoolRealArray( 62, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("PanelDeVictoria:modulate:r")
+tracks/4/type = "value"
+tracks/4/path = NodePath("panelDificultad:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 tracks/5/type = "bezier"
-tracks/5/path = NodePath("PanelDeVictoria:modulate:g")
+tracks/5/path = NodePath("panelDificultad:self_modulate:r")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -117,7 +120,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/6/type = "bezier"
-tracks/6/path = NodePath("PanelDeVictoria:modulate:b")
+tracks/6/path = NodePath("panelDificultad:self_modulate:g")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -127,7 +130,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/7/type = "bezier"
-tracks/7/path = NodePath("PanelDeVictoria:modulate:a")
+tracks/7/path = NodePath("panelDificultad:self_modulate:b")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -137,51 +140,47 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/8/type = "bezier"
-tracks/8/path = NodePath("PanelDeVictoria:rect_position:x")
+tracks/8/path = NodePath("panelDificultad:self_modulate:a")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/9/type = "bezier"
-tracks/9/path = NodePath("PanelDeVictoria:rect_position:y")
+tracks/9/path = NodePath("panelDificultad:modulate:r")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"points": PoolRealArray( -20, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
-tracks/10/type = "value"
-tracks/10/path = NodePath("PanelDeVictoria:visible")
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("panelDificultad:modulate:g")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
-tracks/11/type = "value"
-tracks/11/path = NodePath("panelDificultad:visible")
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("panelDificultad:modulate:b")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 tracks/12/type = "bezier"
-tracks/12/path = NodePath("panelDificultad:rect_position:x")
+tracks/12/path = NodePath("panelDificultad:modulate:a")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -191,37 +190,39 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/13/type = "bezier"
-tracks/13/path = NodePath("panelDificultad:rect_position:y")
+tracks/13/path = NodePath("panelDificultad:rect_position:x")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"points": PoolRealArray( -20, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/14/type = "bezier"
-tracks/14/path = NodePath("panelDificultad:modulate:r")
+tracks/14/path = NodePath("panelDificultad:rect_position:y")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -20, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
-tracks/15/type = "bezier"
-tracks/15/path = NodePath("panelDificultad:modulate:g")
+tracks/15/type = "value"
+tracks/15/path = NodePath("PanelConfiguracion:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 tracks/16/type = "bezier"
-tracks/16/path = NodePath("panelDificultad:modulate:b")
+tracks/16/path = NodePath("PanelConfiguracion:modulate:r")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -231,84 +232,124 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/17/type = "bezier"
-tracks/17/path = NodePath("panelDificultad:modulate:a")
+tracks/17/path = NodePath("PanelConfiguracion:modulate:g")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
-tracks/18/type = "value"
-tracks/18/path = NodePath("PanelConfiguracion:visible")
+tracks/18/type = "bezier"
+tracks/18/path = NodePath("PanelConfiguracion:modulate:b")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 tracks/19/type = "bezier"
-tracks/19/path = NodePath("PanelConfiguracion:modulate:r")
+tracks/19/path = NodePath("PanelConfiguracion:modulate:a")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/20/type = "bezier"
-tracks/20/path = NodePath("PanelConfiguracion:modulate:g")
+tracks/20/path = NodePath("PanelConfiguracion:rect_position:x")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/21/type = "bezier"
-tracks/21/path = NodePath("PanelConfiguracion:modulate:b")
+tracks/21/path = NodePath("PanelConfiguracion:rect_position:y")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -20, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
-tracks/22/type = "bezier"
-tracks/22/path = NodePath("PanelConfiguracion:modulate:a")
+tracks/22/type = "value"
+tracks/22/path = NodePath("PanelDeVictoria:visible")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 tracks/23/type = "bezier"
-tracks/23/path = NodePath("PanelConfiguracion:rect_position:x")
+tracks/23/path = NodePath("PanelDeVictoria:modulate:r")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/24/type = "bezier"
-tracks/24/path = NodePath("PanelConfiguracion:rect_position:y")
+tracks/24/path = NodePath("PanelDeVictoria:modulate:g")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/25/type = "bezier"
+tracks/25/path = NodePath("PanelDeVictoria:modulate:b")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/26/type = "bezier"
+tracks/26/path = NodePath("PanelDeVictoria:modulate:a")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/27/type = "bezier"
+tracks/27/path = NodePath("PanelDeVictoria:rect_position:x")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/28/type = "bezier"
+tracks/28/path = NodePath("PanelDeVictoria:rect_position:y")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
 "points": PoolRealArray( -20, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
@@ -329,27 +370,27 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("panelDificultad:rect_position:x")
+tracks/1/path = NodePath("panelDificultad:modulate:r")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/2/type = "bezier"
-tracks/2/path = NodePath("panelDificultad:rect_position:y")
+tracks/2/path = NodePath("panelDificultad:modulate:g")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("panelDificultad:modulate:r")
+tracks/3/path = NodePath("panelDificultad:modulate:b")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -359,33 +400,33 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/4/type = "bezier"
-tracks/4/path = NodePath("panelDificultad:modulate:g")
+tracks/4/path = NodePath("panelDificultad:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/5/type = "bezier"
-tracks/5/path = NodePath("panelDificultad:modulate:b")
+tracks/5/path = NodePath("panelDificultad:rect_position:x")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 tracks/6/type = "bezier"
-tracks/6/path = NodePath("panelDificultad:modulate:a")
+tracks/6/path = NodePath("panelDificultad:rect_position:y")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/7/type = "method"
@@ -403,6 +444,96 @@ tracks/7/keys = {
 }, {
 "args": [  ],
 "method": "reestablecer"
+} ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "dificultadDesaparecer"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("panelDificultad:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("panelDificultad:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("panelDificultad:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("panelDificultad:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("panelDificultad:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("panelDificultad:rect_position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("panelDificultad:rect_position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("panelDificultad")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "desactivarBotones"
 } ]
 }
 
@@ -447,6 +578,46 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "points": PoolRealArray( 62, -0.25, 0, 0.25, 0, 62, -0.25, 0, 0.25, 0, 22, -0.25, 0, 0.25, 0, 500, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.1, 0.6, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("panelDificultad:self_modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("panelDificultad:self_modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("panelDificultad:self_modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("panelDificultad:self_modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=12]
@@ -528,40 +699,40 @@ tracks/6/keys = {
 [sub_resource type="Animation" id=13]
 resource_name = "opcionesDesAparicion"
 length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("PanelConfiguracion:visible")
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("PanelConfiguracion:rect_position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("PanelConfiguracion:modulate:r")
+tracks/1/path = NodePath("PanelConfiguracion:rect_position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("PanelConfiguracion:modulate:g")
+tracks/2/type = "value"
+tracks/2/path = NodePath("PanelConfiguracion:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5 )
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("PanelConfiguracion:modulate:b")
+tracks/3/path = NodePath("PanelConfiguracion:modulate:r")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -571,51 +742,53 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/4/type = "bezier"
-tracks/4/path = NodePath("PanelConfiguracion:modulate:a")
+tracks/4/path = NodePath("PanelConfiguracion:modulate:g")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/5/type = "bezier"
-tracks/5/path = NodePath("PanelConfiguracion:rect_position:x")
+tracks/5/path = NodePath("PanelConfiguracion:modulate:b")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/6/type = "bezier"
-tracks/6/path = NodePath("PanelConfiguracion:rect_position:y")
+tracks/6/path = NodePath("PanelConfiguracion:modulate:a")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
 
 [sub_resource type="Animation" id=10]
 resource_name = "victoria"
 length = 0.5
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("PanelDeVictoria:modulate:r")
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelDeVictoria:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("PanelDeVictoria:modulate:g")
+tracks/1/path = NodePath("PanelDeVictoria:modulate:r")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -625,7 +798,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/2/type = "bezier"
-tracks/2/path = NodePath("PanelDeVictoria:modulate:b")
+tracks/2/path = NodePath("PanelDeVictoria:modulate:g")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -635,31 +808,24 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("PanelDeVictoria:modulate:a")
+tracks/3/path = NodePath("PanelDeVictoria:modulate:b")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
-tracks/4/type = "method"
-tracks/4/path = NodePath("PanelDeVictoria")
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("PanelDeVictoria:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "desactivarBotones"
-}, {
-"args": [  ],
-"method": "activarBotones"
-} ]
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
 tracks/5/type = "bezier"
 tracks/5/path = NodePath("PanelDeVictoria:rect_position:x")
@@ -681,17 +847,22 @@ tracks/6/keys = {
 "points": PoolRealArray( -20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("PanelDeVictoria:visible")
+tracks/7/type = "method"
+tracks/7/path = NodePath("PanelDeVictoria")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "desactivarBotones"
+}, {
+"args": [  ],
+"method": "activarBotones"
+} ]
 }
 
 [node name="Control" type="Control"]
@@ -876,6 +1047,20 @@ icon = ExtResource( 2 )
 icon_align = 1
 expand_icon = true
 
+[node name="records" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -216.0
+margin_top = 11.0
+margin_right = -118.0
+margin_bottom = 52.0
+hint_tooltip = "Activar / desactivar Pantalla Completa"
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "estadísticas"
+icon_align = 1
+expand_icon = true
+
 [node name="opcionesBoton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
@@ -889,38 +1074,27 @@ text = "  Opciones  "
 
 [node name="PanelDeVictoria" parent="." instance=ExtResource( 8 )]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -320.0
-margin_right = 400.0
-margin_bottom = 280.0
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_bottom = -20.0
 
 [node name="panelDificultad" parent="." instance=ExtResource( 9 )]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -320.0
-margin_right = 400.0
-margin_bottom = 280.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_bottom = -20.0
 
 [node name="PanelConfiguracion" parent="." instance=ExtResource( 14 )]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -320.0
-margin_right = 400.0
-margin_bottom = 280.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+margin_bottom = -20.0
 
 [node name="Transicion" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -928,6 +1102,7 @@ visible = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
 anims/dificultad = SubResource( 11 )
+anims/dificultadDesaparecer = SubResource( 15 )
 anims/iniciar = SubResource( 5 )
 anims/opcionesAparicion = SubResource( 12 )
 anims/opcionesDesAparicion = SubResource( 13 )
@@ -942,6 +1117,8 @@ stream = ExtResource( 12 )
 [node name="click_sonido" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 
+[node name="transicionDeEscenas" parent="." instance=ExtResource( 15 )]
+
 [connection signal="pressed" from="botones/iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="botones/salir" to="." method="_on_salir_pressed"]
 [connection signal="terminoAnimacionDesaparicion" from="bombita" to="." method="_on_bombita_terminoAnimacionDesaparicion"]
@@ -949,6 +1126,7 @@ stream = ExtResource( 13 )
 [connection signal="pressed" from="gameOver/HBoxContainer/Salir" to="." method="_on_Salir_pressed"]
 [connection signal="pressed" from="dificultadBoton" to="." method="_on_dificultadBoton_pressed"]
 [connection signal="pressed" from="botoncito" to="." method="_on_botoncito_pressed"]
+[connection signal="pressed" from="records" to="." method="_on_records_pressed"]
 [connection signal="pressed" from="opcionesBoton" to="." method="_on_opcionesBoton_pressed"]
 [connection signal="reiniciar_presionado" from="PanelDeVictoria" to="." method="_on_PanelDeVictoria_reiniciar_presionado"]
 [connection signal="salir_presionado" from="PanelDeVictoria" to="." method="_on_PanelDeVictoria_salir_presionado"]

@@ -36,6 +36,8 @@ config/icon="res://Recursos/Graficos/logo.png"
 [autoload]
 
 Config="*res://scripts/CONFIG.gd"
+GLOBAL="*res://scripts/Global.gd"
+SaveData="*res://scripts/SaveData.gd"
 
 [display]
 

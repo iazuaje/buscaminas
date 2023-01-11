@@ -30,6 +30,8 @@ onready var panelConfiguracion = $PanelConfiguracion
 onready var botonDificultad = $dificultadBoton
 onready var tiempoLabel = $cronometro
 
+onready var transicionDeEscena = $transicionDeEscenas
+
 #Referencias nodos sonido
 onready var sonidoVictoria = $victoria_sonido
 onready var sonidoGameOver = $game_over_sonido
@@ -46,6 +48,7 @@ var primerClick : bool
 var tiempoDePartida : float = 0
 var partidaEnCurso : bool = false
 var partidaPerdida : bool
+var dificultad : String
 
 # CALCULO DE TIEMPO ============================================================
 func _ready():
@@ -304,6 +307,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name) -> void:
 			self.remove_child(botones)
 
 func _on_PanelDeVictoria_reiniciar_presionado() -> void:
+	SaveData.guardar(tiempoLabel.obtenerTiempo(), dificultad)
 	_on_Reiniciar_pressed()
 
 func _on_PanelDeVictoria_salir_presionado():
@@ -312,6 +316,7 @@ func _on_PanelDeVictoria_salir_presionado():
 #DIFICULTAD
 
 func _on_panelDificultad_dificilPresionado():
+	dificultad = SaveData.DIFICIL
 	columnas = 18
 	filas = 13
 	bombas = 46
@@ -321,6 +326,7 @@ func _on_panelDificultad_dificilPresionado():
 		transicion.animar()
 
 func _on_panelDificultad_facilPresionado():
+	dificultad = SaveData.FACIL
 	columnas = CANTIDAD_COLUMMNAS
 	filas = columnas
 	bombas = CANTIDAD_BOMBAS
@@ -330,6 +336,7 @@ func _on_panelDificultad_facilPresionado():
 		transicion.animar()
 
 func _on_panelDificultad_intermedioPresionado():
+	dificultad = SaveData.INTERMEDIO
 	columnas = 12
 	filas = 12
 	bombas = 28
@@ -346,9 +353,9 @@ func _on_dificultadBoton_pressed():
 
 func _on_panelDificultad_cerrarPresionado():
 	sonidoClick.play()
-	panelDificultad.visible = false
 	if not primerClick:
 		partidaEnCurso = true
+	animacion.play("dificultadDesaparecer")
 
 #Opciones
 func _on_opcionesBoton_pressed():
@@ -365,3 +372,9 @@ func _on_PanelConfiguracion_salirApretado():
 	animacion.play("opcionesDesAparicion")
 	if not primerClick:
 		partidaEnCurso = true
+
+#Records
+func _on_records_pressed():
+	sonidoClick.play()
+	GLOBAL.escenaAnterior = get_tree().current_scene.filename
+	transicionDeEscena.transicionar("res://Objetos/Record.tscn")
