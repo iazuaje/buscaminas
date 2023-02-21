@@ -12,6 +12,7 @@ export(int) var bombas : int = CANTIDAD_BOMBAS
 #Referencias a otras Escenas ajenas
 var CasillaVacia = preload("res://Objetos/CasillaNoActiva.tscn")
 var Cuadricula = preload("res://Objetos/Cuadricula.tscn")
+var Notificacion = preload("res://Objetos/Notificacion.tscn")
 
 #Referencias a imagenes
 var imagenBandera = preload("res://Recursos/Graficos/bandera.png")
@@ -29,6 +30,7 @@ onready var panelDificultad = $panelDificultad
 onready var panelConfiguracion = $PanelConfiguracion
 onready var botonDificultad = $dificultadBoton
 onready var tiempoLabel = $cronometro
+onready var httpRequest = $HTTPRequest
 
 onready var transicionDeEscena = $transicionDeEscenas
 
@@ -53,6 +55,17 @@ var dificultad : String
 # CALCULO DE TIEMPO ============================================================
 func _ready():
 	randomize()
+	httpRequest.connect("request_completed", self, "_on_request_completed")
+	var error = httpRequest.request("https://raw.githubusercontent.com/iazuaje/buscaminas/master/version.json")
+	if error != OK:
+		push_error("An error occurred in the HTTP request.")
+		
+func _on_request_completed(_result, _response_code, _headers, body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	var versionNueva = json.result["version"]
+	if (versionNueva != GLOBAL.versionActual):
+		var notificacion = Notificacion.instance()
+		add_child(notificacion)
 
 func _process(delta : float) -> void:
 	if (partidaEnCurso):

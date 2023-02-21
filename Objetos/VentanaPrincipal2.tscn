@@ -1078,7 +1078,8 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -20.0
-margin_bottom = -20.0
+margin_right = 4000.0
+margin_bottom = 2980.0
 
 [node name="panelDificultad" parent="." instance=ExtResource( 9 )]
 visible = false
@@ -1086,7 +1087,8 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -20.0
-margin_bottom = -20.0
+margin_right = 4000.0
+margin_bottom = 2980.0
 
 [node name="PanelConfiguracion" parent="." instance=ExtResource( 14 )]
 visible = false
@@ -1094,7 +1096,8 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -20.0
-margin_bottom = -20.0
+margin_right = 4000.0
+margin_bottom = 2980.0
 
 [node name="Transicion" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -1118,6 +1121,8 @@ stream = ExtResource( 12 )
 stream = ExtResource( 13 )
 
 [node name="transicionDeEscenas" parent="." instance=ExtResource( 15 )]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="botones/iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="botones/salir" to="." method="_on_salir_pressed"]
