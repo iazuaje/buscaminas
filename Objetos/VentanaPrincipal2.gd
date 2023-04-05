@@ -66,6 +66,7 @@ func _on_request_completed(_result, _response_code, _headers, body):
 	if (versionNueva != GLOBAL.versionActual):
 		var notificacion = Notificacion.instance()
 		add_child(notificacion)
+	else: print("mamita")
 
 func _process(delta : float) -> void:
 	if (partidaEnCurso):

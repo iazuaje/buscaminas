@@ -1,5 +1,5 @@
 extends Node
 
-const versionActual = "1.1.0.0"
+const versionActual = "1.1.1.1"
 
 var escenaAnterior = null
